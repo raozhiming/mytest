@@ -1,0 +1,500 @@
+{
+    "topic":[
+        {
+            "title":"A: Russia vs. Saudi Arabia",
+            "desc":"",
+            "A":"Russia",
+            "B":"Saudi Arabia",
+            "C":"TIE",
+            "Starttime":"2018-6-14 22:30:00"
+        },
+        {
+            "title":"A: Egypt vs. Uruguay",
+            "desc":"",
+            "A":"Egypt",
+            "B":"Uruguay",
+            "C":"TIE",
+            "Starttime":"2018-6-15 19:30:00"
+        },
+        {
+            "title":"B: Morocco vs. IR Iran",
+            "desc":"",
+            "A":"Morocco",
+            "B":"IR Iran",
+            "C":"TIE",
+            "Starttime":"2018-6-15 22:30:00"
+        },
+        {
+            "title":"B: Portugal vs. Spain",
+            "desc":"",
+            "A":"Portugal",
+            "B":"Spain",
+            "C":"TIE",
+            "Starttime":"2018-6-16 1:30:00"
+        },
+        {
+            "title":"C: France vs. Australia",
+            "desc":"",
+            "A":"France",
+            "B":"Australia",
+            "C":"TIE",
+            "Starttime":"2018-6-16 17:30:00"
+        },
+        {
+            "title":"D: Argentina vs. Iceland",
+            "desc":"",
+            "A":"Argentina",
+            "B":"Iceland",
+            "C":"TIE",
+            "Starttime":"2018-6-16 20:30:00"
+        },
+        {
+            "title":"C: Peru vs. Denmark",
+            "desc":"",
+            "A":"Peru",
+            "B":"Denmark",
+            "C":"TIE",
+            "Starttime":"2018-6-16 23:30:00"
+        },
+        {
+            "title":"D: Croatia vs. Nigeria",
+            "desc":"",
+            "A":"Croatia",
+            "B":"Nigeria",
+            "C":"TIE",
+            "Starttime":"2018-6-17 2:30:00"
+        },
+        {
+            "title":"E: Costa Rica vs. Serbia",
+            "desc":"",
+            "A":"Costa Rica",
+            "B":"Serbia",
+            "C":"TIE",
+            "Starttime":"2018-6-17 19:30:00"
+        },
+        {
+            "title":"F: Germany vs. Mexico",
+            "desc":"",
+            "A":"Germany",
+            "B":"Mexico",
+            "C":"TIE",
+            "Starttime":"2018-6-17 22:30:00"
+        },
+        {
+            "title":"E: Brazil vs. Switzerland",
+            "desc":"",
+            "A":"Brazil",
+            "B":"Switzerland",
+            "C":"TIE",
+            "Starttime":"2018-6-18 1:30:00"
+        },
+        {
+            "title":"F: Sweden vs. Korea Republic",
+            "desc":"",
+            "A":"Sweden",
+            "B":"Korea Republic",
+            "C":"TIE",
+            "Starttime":"2018-6-18 19:30:00"
+        },
+        {
+            "title":"G: Belgium vs. Panama",
+            "desc":"",
+            "A":"Belgium",
+            "B":"Panama",
+            "C":"TIE",
+            "Starttime":"2018-6-18 22:30:00"
+        },
+        {
+            "title":"G: Tunisia vs. England",
+            "desc":"",
+            "A":"Tunisia",
+            "B":"England",
+            "C":"TIE",
+            "Starttime":"2018-6-19 1:30:00"
+        },
+        {
+            "title":"H: Colombia vs. Japan",
+            "desc":"",
+            "A":"Colombia",
+            "B":"Japan",
+            "C":"TIE",
+            "Starttime":"2018-6-19 19:30:00"
+        },
+        {
+            "title":"H: Poland vs. Senegal",
+            "desc":"",
+            "A":"Poland",
+            "B":"Senegal",
+            "C":"TIE",
+            "Starttime":"2018-6-19 22:30:00"
+        },
+        {
+            "title":"A: Russia vs. Egypt",
+            "desc":"",
+            "A":"Russia",
+            "B":"Egypt",
+            "C":"TIE",
+            "Starttime":"2018-6-20 1:30:00"
+        },
+        {
+            "title":"B: Portugal vs. Morocco",
+            "desc":"",
+            "A":"Portugal",
+            "B":"Morocco",
+            "C":"TIE",
+            "Starttime":"2018-6-20 19:30:00"
+        },
+        {
+            "title":"A: Uruguay vs. Saudi Arabia",
+            "desc":"",
+            "A":"Uruguay",
+            "B":"Saudi Arabia",
+            "C":"TIE",
+            "Starttime":"2018-6-20 22:30:00"
+        },
+        {
+            "title":"B: IR Iran vs. Spain",
+            "desc":"",
+            "A":"IR Iran",
+            "B":"Spain",
+            "C":"TIE",
+            "Starttime":"2018-6-21 1:30:00"
+        },
+        {
+            "title":"C: Denmark vs. Australia",
+            "desc":"",
+            "A":"Denmark",
+            "B":"Australia",
+            "C":"TIE",
+            "Starttime":"2018-6-21 19:30:00"
+        },
+        {
+            "title":"C: France vs. Peru",
+            "desc":"",
+            "A":"France",
+            "B":"Peru",
+            "C":"TIE",
+            "Starttime":"2018-6-21 22:30:00"
+        },
+        {
+            "title":"D: Argentina vs. Croatia",
+            "desc":"",
+            "A":"Argentina",
+            "B":"Croatia",
+            "C":"TIE",
+            "Starttime":"2018-6-22 1:30:00"
+        },
+        {
+            "title":"E: Brazil vs. Costa Rica",
+            "desc":"",
+            "A":"Brazil",
+            "B":"Costa Rica",
+            "C":"TIE",
+            "Starttime":"2018-6-22 19:30:00"
+        },
+        {
+            "title":"D: Nigeria vs. Iceland",
+            "desc":"",
+            "A":"Nigeria",
+            "B":"Iceland",
+            "C":"TIE",
+            "Starttime":"2018-6-22 22:30:00"
+        },
+        {
+            "title":"E: Serbia vs. Switzerland",
+            "desc":"",
+            "A":"Serbia",
+            "B":"Switzerland",
+            "C":"TIE",
+            "Starttime":"2018-6-23 1:30:00"
+        },
+        {
+            "title":"G: Belgium vs. Tunisia",
+            "desc":"",
+            "A":"Belgium",
+            "B":"Tunisia",
+            "C":"TIE",
+            "Starttime":"2018-6-23 19:30:00"
+        },
+        {
+            "title":"F: Korea Republic vs. Mexico",
+            "desc":"",
+            "A":"Korea Republic",
+            "B":"Mexico",
+            "C":"TIE",
+            "Starttime":"2018-6-23 22:30:00"
+        },
+        {
+            "title":"F: Germany vs. Sweden",
+            "desc":"",
+            "A":"Germany",
+            "B":"Sweden",
+            "C":"TIE",
+            "Starttime":"2018-6-24 1:30:00"
+        },
+        {
+            "title":"G: England vs. Panama",
+            "desc":"",
+            "A":"England",
+            "B":"Panama",
+            "C":"TIE",
+            "Starttime":"2018-6-24 19:30:00"
+        },
+        {
+            "title":"H: Japan vs. Senegal",
+            "desc":"",
+            "A":"Japan",
+            "B":"Senegal",
+            "C":"TIE",
+            "Starttime":"2018-6-24 22:30:00"
+        },
+        {
+            "title":"H: Poland vs. Colombia",
+            "desc":"",
+            "A":"Poland",
+            "B":"Colombia",
+            "C":"TIE",
+            "Starttime":"2018-6-25 1:30:00"
+        },
+        {
+            "title":"A: Uruguay vs. Russia",
+            "desc":"",
+            "A":"Uruguay",
+            "B":"Russia",
+            "C":"TIE",
+            "Starttime":"2018-6-25 21:30:00"
+        },
+        {
+            "title":"A: Saudi Arabia vs. Egypt",
+            "desc":"",
+            "A":"Saudi Arabia",
+            "B":"Egypt",
+            "C":"TIE",
+            "Starttime":"2018-6-25 21:30:00"
+        },
+        {
+            "title":"B: IR Iran vs. Portugal",
+            "desc":"",
+            "A":"IR Iran",
+            "B":"Portugal",
+            "C":"TIE",
+            "Starttime":"2018-6-26 1:30:00"
+        },
+        {
+            "title":"B: Spain vs. Morocco",
+            "desc":"",
+            "A":"Spain",
+            "B":"Morocco",
+            "C":"TIE",
+            "Starttime":"2018-6-26 1:30:00"
+        },
+        {
+            "title":"C: Denmark vs. France",
+            "desc":"",
+            "A":"Denmark",
+            "B":"France",
+            "C":"TIE",
+            "Starttime":"2018-6-26 21:30:00"
+        },
+        {
+            "title":"C: Australia vs. Peru",
+            "desc":"",
+            "A":"Australia",
+            "B":"Peru",
+            "C":"TIE",
+            "Starttime":"2018-6-26 21:30:00"
+        },
+        {
+            "title":"D: Nigeria vs. Argentina",
+            "desc":"",
+            "A":"Nigeria",
+            "B":"Argentina",
+            "C":"TIE",
+            "Starttime":"2018-6-27 1:30:00"
+        },
+        {
+            "title":"D: Iceland vs. Croatia",
+            "desc":"",
+            "A":"Iceland",
+            "B":"Croatia",
+            "C":"TIE",
+            "Starttime":"2018-6-27 1:30:00"
+        },
+        {
+            "title":"F: Mexico vs. Sweden",
+            "desc":"",
+            "A":"Mexico",
+            "B":"Sweden",
+            "C":"TIE",
+            "Starttime":"2018-6-27 21:30:00"
+        },
+        {
+            "title":"F: Korea Republic vs. Germany",
+            "desc":"",
+            "A":"Korea Republic",
+            "B":"Germany",
+            "C":"TIE",
+            "Starttime":"2018-6-27 21:30:00"
+        },
+        {
+            "title":"E: Serbia vs. Brazil",
+            "desc":"",
+            "A":"Serbia",
+            "B":"Brazil",
+            "C":"TIE",
+            "Starttime":"2018-6-28 1:30:00"
+        },
+        {
+            "title":"E: Switzerland vs. Costa Rica",
+            "desc":"",
+            "A":"Switzerland",
+            "B":"Costa Rica",
+            "C":"TIE",
+            "Starttime":"2018-6-28 1:30:00"
+        },
+        {
+            "title":"H: Japan vs. Poland",
+            "desc":"",
+            "A":"Japan",
+            "B":"Poland",
+            "C":"TIE",
+            "Starttime":"2018-6-28 21:30:00"
+        },
+        {
+            "title":"H: Senegal vs. Colombia",
+            "desc":"",
+            "A":"Senegal",
+            "B":"Colombia",
+            "C":"TIE",
+            "Starttime":"2018-6-28 21:30:00"
+        },
+        {
+            "title":"G: Panama vs. Tunisia",
+            "desc":"",
+            "A":"Panama",
+            "B":"Tunisia",
+            "C":"TIE",
+            "Starttime":"2018-6-29 1:30:00"
+        },
+        {
+            "title":"G: England vs. Belgium",
+            "desc":"",
+            "A":"England",
+            "B":"Belgium",
+            "C":"TIE",
+            "Starttime":"2018-6-29 1:30:00"
+        },
+        {
+            "title":"1/8 France vs. Argentina",
+            "desc":"C1 vs. D2",
+            "A":"France",
+            "B":"Argentina",
+            "Starttime":"2018-6-30 21:30:00"
+        },
+        {
+            "title":"1/8 Uruguay vs. Portugal",
+            "desc":"A1 vs. B2",
+            "A":"Uruguay",
+            "B":"Portugal",
+            "Starttime":"2018-7-1 1:30:00"
+        },
+        {
+            "title":"1/8 Spain vs. Russia",
+            "desc":"B1 vs. A2",
+            "A":"Spain",
+            "B":"Russia",
+            "Starttime":"2018-7-1 21:30:00"
+        },
+        {
+            "title":"1/8 Croatia vs. Denmark",
+            "desc":"D1 vs. C2",
+            "A":"Croatia",
+            "B":"Denmark",
+            "Starttime":"2018-7-2 1:30:00"
+        },
+        {
+            "title":"1/8 Brazil vs. Mexico",
+            "desc":"E1 vs. F2",
+            "A":"Brazil",
+            "B":"Mexico",
+            "Starttime":"2018-7-2 21:30:00"
+        },
+        {
+            "title":"1/8 Belgium vs. Japan",
+            "desc":"G1 vs. H2",
+            "A":"Belgium",
+            "B":"Japan",
+            "Starttime":"2018-7-3 1:30:00"
+        },
+        {
+            "title":"1/8 Sweden vs. Switzerland",
+            "desc":"F1 vs. E2",
+            "A":"Sweden",
+            "B":"Switzerland",
+            "Starttime":"2018-7-3 21:30:00"
+        },
+        {
+            "title":"1/8 Colombia vs. England",
+            "desc":"H1 vs. G2",
+            "A":"Colombia",
+            "B":"England",
+            "Starttime":"2018-7-4 1:30:00"
+        },
+        {
+            "title":"1/4 49-50",
+            "desc":"1/4 49-50",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-6 22:00:00"
+        },
+        {
+            "title":"1/4 53-54",
+            "desc":"1/4 53-54",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-7 2:00:00"
+        },
+        {
+            "title":"1/4 51-52",
+            "desc":"1/4 51-52",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-7 22:00:00"
+        },
+        {
+            "title":"1/4 55-56",
+            "desc":"1/4 55-56",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-8 2:00:00"
+        },
+        {
+            "title":"1/2 57-58",
+            "desc":"1/2 57-58",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-11 2:00:00"
+        },
+        {
+            "title":"1/2 59-60",
+            "desc":"1/2 59-60",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-12 2:00:00"
+        },
+        {
+            "title":"3-4",
+            "desc":"3-4",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-14 22:00:00"
+        },
+        {
+            "title":"1-2",
+            "desc":"1-2",
+            "A":"England",
+            "B":"Belgium",
+            "Starttime":"2018-7-15 23:00:00"
+        }
+    ]
+}
