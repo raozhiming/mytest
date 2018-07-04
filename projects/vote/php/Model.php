@@ -4,7 +4,7 @@ require_once("./config-local.php");
 class Model {
     private $db;
     public function __construct() {
-        $se = explode(' ',microtime()); //返回数组，当前时间微秒数和时间戳秒数
+        $se = explode(' ',microtime());
         $start_time = $se[0] + $se[1];
 
         printf("start connect %s:%s\r\n", HOSTNAME, DATABASE);
@@ -17,9 +17,9 @@ class Model {
         mysqli_query($this->db , "set names utf8");
         mysqli_select_db($this->db, DATABASE);
 
-        $se1 = explode(' ',microtime());//代码结束计算当前秒数
+        $se1 = explode(' ',microtime());
         $end_time = $se1[0] + $se1[1];
-        $spend_time = $end_time - $start_time; //代码执行结束时间 - 代码开始时间 = 执行时间
+        $spend_time = $end_time - $start_time;
         $hstime = round($spend_time,3);//获取小数点后三位
         echo 'connect OK, Elapsed time:' . $hstime . "\r\n";
     }
