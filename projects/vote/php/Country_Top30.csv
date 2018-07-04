@@ -1,32 +1,1 @@
-﻿country,register user,fate_num,CountryName
-86,2196,1814,China
-1,560,237,USA|Canada
-81,171,158,Japan
-66,165,128,Thailand
-44,132,66,United Kingdom
-31,124,89,Netherlands
-82,123,47,Korea Republic
-90,105,83,Turkey
-7,96,21,Russia
-49,85,39,Germany
-61,70,35,Australia
-385,49,51,Croatia
-852,44,37,Hong Kong
-41,39,39,Switzerland
-380,34,8,Ukraine
-91,33,39,India
-33,30,26,France
-63,25,20,Philippines
-98,23,14,Iran
-32,21,5,Belgium
-65,20,7,Singapore
-34,20,6,Spain
-27,18,8,South Africa
-43,18,14,Austria
-386,18,9,Slovenia
-60,17,9,Malaysia
-84,17,139,Vietnam
-234,17,7,Nigeria
-358,17,9,Finland
-375,17,66,Belarus
-Others,263,116
+CountryName	register userChina	2399USA|Canada	882Japan	171Thailand	166United Kingdom	141Russia	136Netherlands	129Korea Republic	126Turkey	109Germany	89India	81Australia	70Croatia	56Ukraine	54Hong Kong	49Switzerland	39France	36Philippines	34Belarus	34Romania	27Iran	23Malaysia	22Spain	22Belgium	22Singapore	21Vietnam	20South Africa	18Nigeria	18Austria	18Slovenia	18Others	319

@@ -67,7 +67,7 @@ $voteArray = $voteModel->getOfficialTopic();
 $column = array("ID", "Title", "total");
 Utils::writeArray2csv("Topic_Vote.csv", $column, 1000000, $voteArray);
 
-$voteArray = $voteModel->getTopTopic(20);
+$voteArray = $voteModel->getTopTopic(60);
 printf("<<<------------------------------------------------------------------>>>\r\n");
 printf("%30s | %8s\r\n", "title", "count");
 printf("<<<------------------------------------------------------------------>>>\r\n");
