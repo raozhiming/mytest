@@ -1,5 +1,5 @@
 *.csv
 *.xlsx
-config-localbak.php
-config-testbak.php
+config-local.php
+config-test.php
 configbak.php
