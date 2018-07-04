@@ -2,4 +2,4 @@
 *.xlsx
 config-local.php
 config-test.php
-configbak.php
+config.php

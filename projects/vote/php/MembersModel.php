@@ -1,55 +1,11 @@
 <?php
 
+require_once("./BaseModel.php");
 require_once("./Utils.php");
 
-class MemberModel {
-    private $m_db;
+class MemberModel extends BaseModel {
     private $m_firstCreateTime = 0;
 
-    public function __construct($db) {
-        $this->m_db = $db;
-    }
-
-    private function ExecSelectQuery($sql) {
-        $se = explode(' ',microtime()); //返回数组，当前时间微秒数和时间戳秒数
-        $start_time = $se[0] + $se[1];
-
-        printf("ExecSelectQuery:%s\r\n", $sql);
-
-        $userArray = array();
-        if ($result = mysqli_query($this->m_db, $sql)) {
-            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-            {
-                $userArray[] = $row;
-                // print_r($row);
-            }
-            mysqli_free_result($result);
-        }
-        else {
-            echo "Error: " . $this->m_db->error."\r\n";
-        }
-        // print_r($userArray);
-        $se1 = explode(' ',microtime());//代码结束计算当前秒数
-        $end_time = $se1[0] + $se1[1];
-        $spend_time = $end_time - $start_time; //代码执行结束时间 - 代码开始时间 = 执行时间
-        $hstime = round($spend_time,3);//获取小数点后三位
-        echo 'ExecSelectQuery OK, Elapsed time:' . $hstime . "\r\n";
-        return $userArray;
-    }
-
-    // public function update() {
-    //     unset($this->m_membersArray);
-
-    //     // $sql = "select create_time from elastos_members where is_official=0 order by create_time limit 100;";
-    //     // $sql = "select count(*) from elastos_members where is_official=0";
-    //     // $sql = "select user_id, username from elastos_members;";
-    //     // $sql = "select user_id, username, zone, fate_num, referee, create_time from elastos_members where is_official=0 order by create_time;";
-    //     // $sql = "select * from elastos_members where is_official=0 order by create_time;";
-    //     // $sql = "select zone, count(*) as count, sum(fate_num) as fate_num from elastos_members group by zone order by count desc;";
-    //     // $sql = "select zone, count(*) as count from elastos_members group by zone order by count desc;";
-    //     $sql = "select date_format(from_unixtime(create_time), '%Y-%m-%d %H') hour, count(*) as count from elastos_members group by hour";
-    //     return $this->ExecSelectQuery($sql);
-    // }
     public function getFirstUserCreateTime() {
         if ($m_firstCreateTime <= 0) {
             $sql = "select create_time from elastos_members limit 1";
@@ -60,15 +16,15 @@ class MemberModel {
         return $m_firstCreateTime;
     }
 
-    public function getCount() {
+    public function getUserCount() {
         $sql = "select count(*) as c from elastos_members";
         $result = mysqli_query($this->m_db, $sql);
-        $rowCount = $result->fetch_object()->c - 1;//-1:official
+        $rowCount = $result->fetch_object()->c;
         mysqli_free_result($result);
         return $rowCount;
     }
 
-    public function getWalletCount() {
+    public function getUserCountHasWallet() {
         $sql = "select count(*) as c from elastos_members where wallet_addr is not null;";
         $result = mysqli_query($this->m_db, $sql);
         $rowCount = $result->fetch_object()->c;
@@ -84,15 +40,10 @@ class MemberModel {
         return $rowCount;
     }
 
-    public function getUserByFate_num($limit) {
+    public function getUsersByFate_num($limit) {
         $sql = "select user_id, username, zone, fate_num from elastos_members where fate_num>0 order by fate_num desc limit 0,{$limit};";
         $userGroup = $this->ExecSelectQuery($sql);
         return Utils::addCountryName($userGroup);
-    }
-
-    public function getAllMembers() {
-        $sql = "select * from elastos_members";
-        return $this->ExecSelectQuery($sql);
     }
 
     public function getCountByCreateTime($hours=1) {
@@ -107,21 +58,8 @@ class MemberModel {
         return Utils::calTotalValue($userGroup, 'count', 'total');
     }
 
-    // public function getFateTrendByUser($name, $hours=1) {
-    //     if ($hours <= 1) {
-    //         $sql = "select date_format(from_unixtime(create_time), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_members where referee =(select user_id from elastos_members where username='{$name}'') group by hour;";
-    //     }
-    //     else {
-    //         $interval = 3600 * $hours;
-    //         $sql = "select date_format(from_unixtime(floor(create_time/".$interval.")* ".$interval."), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_members  where referee =(select user_id from elastos_members where username='{$name}') group by hour";
-    //     }
-    //     $userGroup = $this->ExecSelectQuery($sql);
-    //     return Utils::calTotalValue($userGroup, 'count', 'total');
-    // }
-
     public function getFateTrendByUser($name, $hours=1) {
         $start_time = $this->getFirstUserCreateTime();
-
 
         $interval = 3600 * $hours;
         $first_timeAxis = ($start_time / $interval) * $interval;
@@ -153,20 +91,20 @@ class MemberModel {
         return $fateArray;
     }
 
-    // count,fate_num, referee
     public function getUserByCountry() {
         $sql = "select zone, count(*) as count, sum(fate_num) as fate_num from elastos_members group by zone order by count desc;";
         $userGroup = $this->ExecSelectQuery($sql);
         return Utils::addCountryName($userGroup);
     }
 
-    public function getVoteTrendByVoteCount() {
-        // $sql = "select m.username, v.user_id, count(v.user_id) as count from elastos_vote v left join elastos_members m on m.user_id = v.user_id group by v.user_id";
+    public function getUserTrendByVoteCount() {
         $sql = "select count(v.user_id) as total from elastos_vote v left join elastos_members m on m.user_id = v.user_id group by v.user_id";
         $userGroup = $this->ExecSelectQuery($sql);
-        // print_r($userGroup);
 
         $voteArray = array();
+        $userCountNoVote = $this->getUserCountNoVote();
+        $voteArray[0] = $userCountNoVote;
+
         foreach ($userGroup as $key => $value) {
             $voteArray[$value['total']]++;
         }
@@ -176,7 +114,6 @@ class MemberModel {
     }
 
     public function getUserCountNoVote() {
-        // $sql = "select count(*) as 'c' from elastos_members m where m.user_id not in (select user_id from elastos_vote)";
         $sql = "select count(*) as 'c' from elastos_members m where (select count(1) from elastos_vote v where m.user_id = v.user_id) = 0";
         $result = mysqli_query($this->m_db, $sql);
         $rowCount = $result->fetch_object()->c;
@@ -193,7 +130,6 @@ class MemberModel {
     public function getVoteCountByReferee($referee) {
         $sql = "select count(v.user_id) as total from elastos_vote v, elastos_members m where m.referee={$referee} and m.user_id = v.user_id group by v.user_id";
         $userGroup = $this->ExecSelectQuery($sql);
-        // print_r($userGroup);
 
         $voteArray = array();
         foreach ($userGroup as $key => $value) {
