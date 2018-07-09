@@ -9,15 +9,13 @@ $ntime = $se[0] + $se[1];
 
 $model = new Model();
 $conn = $model->get_dbConnect();
-if(! $conn )
-{
+if(! $conn ) {
     die('连接失败: ' . mysqli_error($conn));
 }
 
 $modelApi = new ModelApi();
 $connApi = $modelApi->get_dbConnect();
-if(! $connApi )
-{
+if(! $connApi ) {
     die('连接失败: ' . mysqli_error($connApi));
 }
 

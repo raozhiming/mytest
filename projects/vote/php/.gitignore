@@ -1,6 +1,7 @@
 **/*.csv
 **/*.xlsx
-config-local.php
-config-test.php
-config-api.php
-config.php
+*.sql
+**/config-local.php
+**/config-test.php
+**/config-api.php
+**/config.php

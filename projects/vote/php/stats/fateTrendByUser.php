@@ -12,31 +12,30 @@ $ntime = $se[0] + $se[1];
 
 $model = new Model();
 $conn = $model->get_dbConnect();
-if(! $conn )
-{
+if(! $conn ) {
     die('连接失败: ' . mysqli_error($conn));
 }
 
 $memberModel = new MemberModel($conn);
 
+$voteCountColumn = array("VoteCount");
+$column = array("Time");
+$voteCountTrend = array();
+$fateTrend = array();
+$maxVoteCount = 70;
+$index = 0;
+
 $userArray = $memberModel->getUsersByFate_num(20);
 printf("index | %20s | %8s | %8s |\r\n", "userName", "Zone", "fate_num");
-$index=0;
-$column = array("Time");
-$voteCountColumn = array("VoteCount");
-$fateTrend = array();
-$voteCountTrend = array();
-$maxVoteCount=70;
-foreach ($userArray as $key => $value)
-{
+
+foreach ($userArray as $key => $value) {
     $index++;
     printf("%5d | %20s | %8d | %8d |\r\n", $index, $value['username'], $value['zone'], $value['fate_num']);
     $column[] = $value['username'];
     $voteCountColumn[] = $value['username'];
 
     $fateArray = $memberModel->getFateTrendByUser($value['username'], 6);
-    foreach ($fateArray as $key => $count)
-    {
+    foreach ($fateArray as $key => $count) {
         if (!array_key_exists('Date', $fateTrend[$key])) {
             $fateTrend[$key]['Date'] = $key;
         }
@@ -66,7 +65,7 @@ foreach ($userArray as $key => $value)
     $voteCountTrend['邀请数'][$value['username']] = $value['fate_num'];
 }
 
-Utils::writeArray2csv("FateTrendTop.csv", $column, 1000000, $fateTrend);
+// Utils::writeArray2csv("FateTrendTop.csv", $column, 1000000, $fateTrend);
 Utils::writeArray2csv("voteCountTrendByReferee.csv", $voteCountColumn, 1000000, $voteCountTrend);
 
 $se1 = explode(' ',microtime());

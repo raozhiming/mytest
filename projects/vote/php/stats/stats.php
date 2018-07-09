@@ -14,8 +14,7 @@ $ntime = $se[0] + $se[1];
 
 $model = new Model();
 $conn = $model->get_dbConnect();
-if(! $conn )
-{
+if(! $conn ) {
     die('连接失败: ' . mysqli_error($conn));
 }
 
@@ -23,7 +22,6 @@ $memberModel = new MemberModel($conn);
 $userArray = $memberModel->getUserTrendByVoteCount();
 $column = array("TopicCount", "users");
 Utils::writeArray2csv("User_VoteCount_Stats.csv", $column, 1000000, $userArray);
-// print_r($userArray);
 
 $userArray = $memberModel->getCountByCreateTime(4);
 $column = array("hour", "register user", "total");
@@ -42,8 +40,7 @@ $column = array("user_id", "username", "zone", "country", "fate_num");
 Utils::writeArray2csv("User_TopFate.csv", $column, 1000000, $userArray);
 printf("index | %20s | %8s | %8s | %8s |\r\n", "userName", "Zone", "Country", "fate_num");
 $index=0;
-foreach ($userArray as $key => $value)
-{
+foreach ($userArray as $key => $value) {
     $index++;
     printf("%5d | %20s | %8d | %8s| %8d |\r\n", $index, $value['username'], $value['zone'], $value['CountryName'], $value['fate_num']);
 }
@@ -69,8 +66,7 @@ Utils::writeArray2csv("Topic_Vote.csv", $column, 1000000, $voteArray);
 $voteArray = $voteModel->getTopTopic(20);
 printf($HEAD);
 printf("Top Topic:\n%30s | %8s\r\n", "title", "count");
-foreach ($voteArray as $key => $value)
-{
+foreach ($voteArray as $key => $value) {
     printf("%30s | %8d\r\n", $value['title'], $value['total_vote_num']);
 }
 printf($TAIL);
@@ -78,8 +74,7 @@ printf($TAIL);
 $voteArray = $voteModel->getTopOption(20);
 printf($HEAD);
 printf("Top Option:\n%30s | %15s | %8s\r\n", "title", "option", "count");
-foreach ($voteArray as $key => $value)
-{
+foreach ($voteArray as $key => $value) {
     printf("%30s | %15s | %8d\r\n", $value['title'], $value['content'], $value['vote_num']);
 }
 printf($TAIL);
@@ -88,8 +83,7 @@ $blockModel = new BlockChainModel($conn);
 $blockArray = $blockModel->getTotalCount();
 printf($HEAD);
 printf("BlockChain Total Count:\n%20s | %8s\r\n", "type", "count");
-foreach ($blockArray as $key => $value)
-{
+foreach ($blockArray as $key => $value) {
     printf("%20s | %8d\r\n", $value['type'], $value['count']);
 }
 printf($TAIL);
@@ -97,8 +91,7 @@ printf($TAIL);
 $unSyncArray = $blockModel->getUnSyncCount();
 printf($HEAD);
 printf("BlockChain UnSync Count:\n%20s | %8s\r\n", "type", "count");
-foreach ($unSyncArray as $key => $value)
-{
+foreach ($unSyncArray as $key => $value) {
     printf("%20s | %8d\r\n", $value['type'], $value['count']);
 }
 printf($TAIL);

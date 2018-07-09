@@ -25,51 +25,25 @@ class Utils {
         $utf8BOM = "\xEF\xBB\xBF";
         fwrite($fp, $utf8BOM);
         $column = implode(",", $column_names);
-        // $column = mb_convert_encoding($column, 'gb2312', 'utf-8');
         fwrite($fp, $column."\r\n");
         $multiArray = false;
+
         if (count($column_names) > 2) $multiArray = true;
 
         $cal_count = 0;
         $otherValue = 0;
         $otherArray = array();
-        // $hasOther = false;
-        foreach ($data as $key => $value)
-        {
-            // if ($cal_count++ < $limit_count) {
-                if ($multiArray) {
-                    $values = array_values($value);
-                    $writeString = implode(",", $values)."\r\n";
-                }
-                else {
-                    $writeString = $key.",".$value."\r\n";
-                }
-                // $writeString = mb_convert_encoding($writeString, 'gb2312', 'utf-8');
-                fwrite($fp, $writeString);
-            // }
-            // else {
-            //     $hasOther = true;
-            //     if ($multiArray) {
-            //         $values = array_values($value);
-            //         for ($i = 0; $i < sizeof($values); $i++) {
-            //             $otherArray[$i] += $values[$i];
-            //         }
-            //     }
-            //     else {
-            //         $otherValue += $value;
-            //     }
-            // }
+
+        foreach ($data as $key => $value) {
+            if ($multiArray) {
+                $values = array_values($value);
+                $writeString = implode(",", $values)."\r\n";
+            }
+            else {
+                $writeString = $key.",".$value."\r\n";
+            }
+            fwrite($fp, $writeString);
         }
-        // if ($hasOther) {
-        //     if ($multiArray) {
-        //         $writeString = "Other,".implode(",", $otherArray)."\r\n";
-        //     }
-        //     else {
-        //         $writeString = "Other,".$value."\r\n";
-        //     }
-        //     fwrite($fp, $writeString);
-        // }
-        // fclose($fp);
     }
 
     public static function calTotalValue($data, $index, $column) {
@@ -106,15 +80,11 @@ class Utils {
     public static function addCountryName($data) {
         global $allCountries;
 
-        // for ($i = 0; $i < sizeof($data); $i++) {
-        //     $data[$i]['CountryName'] = $allCountries[$data[$i]['zone']];
-        // }
         foreach ($data as $key => $value) {
             $data[$key]['CountryName'] = $allCountries[$value['zone']];
         }
         return $data;
     }
-
 }
 
 ?>

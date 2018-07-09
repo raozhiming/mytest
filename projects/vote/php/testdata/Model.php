@@ -9,7 +9,8 @@ class Model {
 
         printf("start connect %s:%s\r\n", HOSTNAME, DATABASE);
         $this->db = mysqli_connect(HOSTNAME, USERNAME, DBPASSWORD);
-        if(! $this->db ) {
+        if(! $this->db )
+        {
             die('连接失败: ' . mysqli_error($this->db));
         }
 
@@ -46,7 +47,8 @@ class Model {
         }
         $resultArray= array();
         $result = mysql_query($this->db, $sql);
-        while($row = mysqli_fetch_array($result)) {
+        while($row = mysqli_fetch_array($result))
+        {
             $resultArray[$row['user_id']] = $row['ident_code'];
         }
         mysqli_free_result($result);
