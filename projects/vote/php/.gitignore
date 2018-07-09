@@ -1,5 +1,6 @@
-*.csv
-*.xlsx
+**/*.csv
+**/*.xlsx
 config-local.php
 config-test.php
-configbak.php
+config-api.php
+config.php

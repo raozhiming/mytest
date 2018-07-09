@@ -469,32 +469,32 @@
             "Starttime":"2018-7-8 1:30:00"
         },
         {
-            "title":"1/2 57-58",
+            "title":"1/2 France vs. Belgium",
             "desc":"1/2 57-58",
-            "A":"England",
+            "A":"France",
             "B":"Belgium",
-            "Starttime":"2018-7-11 2:00:00"
+            "Starttime":"2018-7-11 1:30:00"
         },
         {
-            "title":"1/2 59-60",
+            "title":"1/2 Croatia vs. England",
             "desc":"1/2 59-60",
-            "A":"England",
-            "B":"Belgium",
-            "Starttime":"2018-7-12 2:00:00"
+            "A":"Croatia",
+            "B":"England",
+            "Starttime":"2018-7-12 1:30:00"
         },
         {
             "title":"3-4",
             "desc":"3-4",
             "A":"England",
             "B":"Belgium",
-            "Starttime":"2018-7-14 22:00:00"
+            "Starttime":"2018-7-14 21:30:00"
         },
         {
             "title":"1-2",
             "desc":"1-2",
             "A":"England",
             "B":"Belgium",
-            "Starttime":"2018-7-15 23:00:00"
+            "Starttime":"2018-7-15 22:30:00"
         }
     ]
 }

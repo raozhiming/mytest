@@ -81,7 +81,6 @@ function updateTopicAndOption($conn, $topicArray)
 {
     foreach ($topicArray as $topicid => $topicinfo)
     {
-
         foreach ($topicinfo['options'] as $optionid => $vote_num)
         {
             $updateOptionSql = "UPDATE elastos_topic_option set vote_num =".$vote_num." where option_id =".$optionid;

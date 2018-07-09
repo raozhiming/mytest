@@ -12,7 +12,6 @@ function addRecord($conn, $sql)
     }
 }
 
-//开始时间计算
 $se = explode(' ',microtime()); //返回数组，当前时间微秒数和时间戳秒数
 $ntime = $se[0] + $se[1];
 
@@ -29,19 +28,17 @@ $addTopicOptionssql = "insert into elastos_chainblock (source, type, sync) selec
 $addVotesql = "insert into elastos_chainblock (source, type, sync) select option_id, 'vote', 0 from elastos_vote v where v.topic_id = (select topic_id from elastos_topic t where t.topic_id = v.topic_id and t.is_official=1);";
 $submitResult = "insert into elastos_chainblock (source, type, sync) select topic_id, 'submitTopicResult', 0 from elastos_topic where answer_status=1";
 
-// addRecord($conn, $addUserRegsql);
-// addRecord($conn, $addTopicsql);
-// addRecord($conn, $addTopicOptionssql);
-// addRecord($conn, $addVotesql);
+addRecord($conn, $addUserRegsql);
+addRecord($conn, $addTopicsql);
+addRecord($conn, $addTopicOptionssql);
+addRecord($conn, $addVotesql);
 addRecord($conn, $submitResult);
 
-$se1 = explode(' ',microtime());//代码结束计算当前秒数
+$se1 = explode(' ',microtime());
 $etime = $se1[0] + $se1[1];
-$htime = $etime - $ntime; //代码执行结束时间 - 代码开始时间 = 执行时间
+$htime = $etime - $ntime;
 $hstime = round($htime,3);//获取小数点后三位
 
 echo 'Elapsed time:' . $hstime . '\r\n';
-
-// mysqli_close($conn);
 
 ?>

@@ -1,5 +1,4 @@
 <?php
-//add elastos_member
 
 require("./Model.php");
 
@@ -27,7 +26,6 @@ function print_usage() {
 function getUserInfo($name, $referee,$indent_code,$parent_ident_code)
 {
     $info = "('" . $name . "','e10adc3949ba59abbe56e057f20f883e'," . time() . "," . $referee . ",'".$indent_code. "','".$parent_ident_code."') ";
-    // echo "getUserInfo:".$info."\r\n";
     return $info;
 }
 
@@ -40,9 +38,7 @@ function isUserExist($conn, $userName)
 
 function addRecord($conn, $sql)
 {
-    if ($conn->query($sql) === TRUE) {
-        // echo "新记录插入成功\r\n";
-    } else {
+    if ($conn->query($sql) === FALSE) {
         echo "Error: " . $sql . "\r\n" . $conn->error."\r\n";
     }
 }
@@ -110,20 +106,12 @@ function getIdentCode($memberInfo){
 $se = explode(' ',microtime()); //返回数组，当前时间微秒数和时间戳秒数
 $ntime = $se[0] + $se[1];
 
-$dbhost = 'localhost:3306';  // mysql服务器主机地址
-$dbuser = 'root';            // mysql用户名
-$dbpass = $options['p'];         // mysql用户名密码
-// $conn = mysqli_connect($dbhost, $dbuser, $dbpass)；
 $model = new Model();
 $conn = $model->get_dbConnect();
 if(! $conn )
 {
     die('连接失败: ' . mysqli_error($conn));
 }
-// 设置编码，防止中文乱码
-// mysqli_query($conn , "set names utf8");
-
-// mysqli_select_db( $conn, 'vote' );
 
 $allMemberInfo = getAllIdentCode($conn);
 
@@ -200,9 +188,9 @@ if ($addCount > 0) {
 
 echo "addCount:".$addCount."\r\n";
 
-$se1 = explode(' ',microtime());//代码结束计算当前秒数
+$se1 = explode(' ',microtime());
 $etime = $se1[0] + $se1[1];
-$htime = $etime - $ntime; //代码执行结束时间 - 代码开始时间 = 执行时间
+$htime = $etime - $ntime;
 $hstime = round($htime,3);//获取小数点后三位
 
 echo 'Elapsed time:' . $hstime . '\r\n';
