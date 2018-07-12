@@ -59,8 +59,8 @@ class Test(unittest.TestCase):
 
     def checkOutOrder(self, index=1):
         self.logger.info("----checkOutOrder----")
-        # email_index = index / self.email_len
-        email_index = 0
+        email_index = index % self.email_len
+        # email_index = 0
 
         time_str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         order_name = str(index) + " " + self.config['ORDER']['Name'] + " " + time_str

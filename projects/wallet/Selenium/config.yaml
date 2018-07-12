@@ -1,23 +1,14 @@
 
-ElaPayUrl: https://elapay-test.elastos.org/
+ElaWalletUrl: https://wallet-test-06.eadd.co/#?is_pay=true
 
-ORDER:
-  Name: ElaPay PC xxxx,000
-  Desc: ElaPay Test
-  BusinessName: Elastos.Inc
-  Price: 1
-  DiscountPercent: 1
-
-Url:
-  Callback: https://fun-test.elastos.org/api/v1/userReg
-  Return: https://elapay-test.elastos.org/
+Parameter:
+  account: 5102593
+  address: EUWTKNYSPbfVgZ4jWMZumaRSzkFsbH9CFv
+  memo: 5b445ef6425e6153de25403e
+  callback_url: https%3A%2F%2Ffun-test.elastos.org%2Fapi%2Fv1%2FuserReg%2F%3F
+  return_url: https://elapay-test.elastos.org/
 
 Wallet:
   Address: EUWTKNYSPbfVgZ4jWMZumaRSzkFsbH9CFv
   Mnemonic: 饱 始 地 袖 造 华 持 糖 变 枪 加 膨
   Password: elastos2018
-
-Email:
-  - raozhiming79@163.com
-  - raozhiing@msn.com
-  - raozhiming@wlastos.org
