@@ -1,4 +1,4 @@
-ID,Title,total
+﻿ID,Title,total
 368,A: Russia vs. Saudi Arabia,806
 369,A: Egypt vs. Uruguay,1440
 370,B: Morocco vs. IR Iran,1411
@@ -31,27 +31,35 @@ ID,Title,total
 398,G: England vs. Panama,1427
 399,H: Japan vs. Senegal,1378
 400,H: Poland vs. Colombia,1379
-401,A: Uruguay vs. Russia,1413
 402,A: Saudi Arabia vs. Egypt,1374
+401,A: Uruguay vs. Russia,1413
 403,B: IR Iran vs. Portugal,1454
 404,B: Spain vs. Morocco,1426
-406,C: Australia vs. Peru,1313
 405,C: Denmark vs. France,1365
+406,C: Australia vs. Peru,1313
 407,D: Nigeria vs. Argentina,1371
 408,D: Iceland vs. Croatia,1345
-409,F: Mexico vs. Sweden,1309
 410,F: Korea Republic vs. Germany,1396
-483,E: Switzerland vs. Costa Rica,829
+409,F: Mexico vs. Sweden,1309
 411,E: Serbia vs. Brazil,1393
+483,E: Switzerland vs. Costa Rica,829
 413,H: Japan vs. Poland,1389
 414,H: Senegal vs. Colombia,1386
 415,G: Panama vs. Tunisia,1400
 416,G: England vs. Belgium,1414
-496,1/8 France vs. Argentina,43
-497,1/8 Uruguay vs. Portugal,39
-498,1/8 Spain vs. Russia,38
-499,1/8 Croatia vs. Denmark,37
-500,1/8 Brazil vs. Mexico,35
-501,1/8 Belgium vs. Japan,35
-502,1/8 Sweden vs. Switzerland,32
-503,1/8 Colombia vs. England,29
+496,1/8 France vs. Argentina,898
+497,1/8 Uruguay vs. Portugal,953
+498,1/8 Spain vs. Russia,1116
+499,1/8 Croatia vs. Denmark,1140
+500,1/8 Brazil vs. Mexico,1265
+501,1/8 Belgium vs. Japan,1258
+502,1/8 Sweden vs. Switzerland,1254
+503,1/8 Colombia vs. England,1250
+504,1/4 Uruguay vs. France,1151
+505,1/4 Brazil vs. Belgium,1112
+508,1/4 Sweden vs. England,1008
+506,1/4 Russia vs. Croatia,1145
+511,1/2 France vs. Belgium,874
+513,1/2 Croatia vs. England,881
+514,3-4 Belgium vs. England,823
+515,Final France vs. Croatia,972

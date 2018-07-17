@@ -28,6 +28,23 @@ $index = 0;
 $userArray = $memberModel->getUsersByFate_num(20);
 printf("index | %20s | %8s | %8s |\r\n", "userName", "Zone", "fate_num");
 
+
+// 邀请人国家/地区分布
+foreach ($userArray as $key => $value) {
+    $index++;
+    printf("%5d | %20s | %8d | %8d |\r\n", $index, $value['username'], $value['zone'], $value['fate_num']);
+    $column[] = $value['username'];
+    $voteCountColumn[] = $value['username'];
+
+    $countryArray = $memberModel->getUserCountryByReferee($value['username']);
+    foreach ($countryArray as $key => $countryValue) {
+        printf("%25s | %8d\r\n", $countryValue['CountryName'], $countryValue['count']);
+    }
+    printf("---------------------------------------------\n\n");
+}
+
+
+// 邀请数增长趋势
 foreach ($userArray as $key => $value) {
     $index++;
     printf("%5d | %20s | %8d | %8d |\r\n", $index, $value['username'], $value['zone'], $value['fate_num']);
@@ -43,7 +60,7 @@ foreach ($userArray as $key => $value) {
     }
 
     $voteCountArray = $memberModel->getVoteCountByReferee($value['user_id']);
-    for ($i = 1; $i < $maxVoteCount; $i++) {
+    for ($i = 1; $i <= $maxVoteCount; $i++) {
         printf("  %s [%d]: %d\r\n", $value['username'], $i, $voteCountArray[$i]);
         if (!array_key_exists('voteCount', $voteCountTrend[$i])) {
             $voteCountTrend[$i]['voteCount'] = $i;
@@ -65,7 +82,7 @@ foreach ($userArray as $key => $value) {
     $voteCountTrend['邀请数'][$value['username']] = $value['fate_num'];
 }
 
-// Utils::writeArray2csv("FateTrendTop.csv", $column, 1000000, $fateTrend);
+Utils::writeArray2csv("FateTrendTop.csv", $column, 1000000, $fateTrend);
 Utils::writeArray2csv("voteCountTrendByReferee.csv", $voteCountColumn, 1000000, $voteCountTrend);
 
 $se1 = explode(' ',microtime());

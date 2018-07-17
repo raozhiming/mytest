@@ -28,7 +28,7 @@ class BaseModel {
         $end_time = $se1[0] + $se1[1];
         $spend_time = $end_time - $start_time;
         $hstime = round($spend_time,3);//获取小数点后三位
-        echo 'ExecSelectQuery OK, Elapsed time:' . $hstime . "\r\n";
+        // echo 'ExecSelectQuery OK, Elapsed time:' . $hstime . "\r\n";
         return $resultArray;
     }
 }

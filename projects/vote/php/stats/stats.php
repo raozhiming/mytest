@@ -23,7 +23,7 @@ $userArray = $memberModel->getUserTrendByVoteCount();
 $column = array("TopicCount", "users");
 Utils::writeArray2csv("User_VoteCount_Stats.csv", $column, 1000000, $userArray);
 
-$userArray = $memberModel->getCountByCreateTime(4);
+$userArray = $memberModel->getCountByCreateTime(24);
 $column = array("hour", "register user", "total");
 Utils::writeArray2csv("User_Create_Trend.csv", $column, 1000000, $userArray);
 
@@ -35,7 +35,7 @@ $calCol = array("country", "count", "fate_num");
 $newuserArray = Utils::calTop($userArray, 30, $calCol);
 Utils::writeArray2csv("User_Trend_ByTopCountry.csv", $column, 10000000, $newuserArray);
 
-$userArray = $memberModel->getUsersByFate_num(20);
+$userArray = $memberModel->getUsersByFate_num(30);
 $column = array("user_id", "username", "zone", "country", "fate_num");
 Utils::writeArray2csv("User_TopFate.csv", $column, 1000000, $userArray);
 printf("index | %20s | %8s | %8s | %8s |\r\n", "userName", "Zone", "Country", "fate_num");
@@ -50,12 +50,19 @@ printf($HEAD);
 printf("Total User:%d\r\n", $userCount);
 
 $walletCount = $memberModel->getUserCountHasWallet();
-printf("user has wallet:%d\r\n", $walletCount);
 printf($HEAD);
+printf("user has wallet:%d\r\n", $walletCount);
+$noWallet = $userCount - $walletCount;
+$userArray = array();
+$userArray["hasWallet"] = $walletCount;
+$userArray["noWallet"] = $noWallet;
+print_r($userArray);
+$column = array("type", "users");
+Utils::writeArray2csv("User_Wallet.csv", $column, 1000000, $userArray);
 
 
 $voteModel = new VoteModel($conn);
-$voteArray = $voteModel->getVoteCountByCreateTime(4);
+$voteArray = $voteModel->getVoteCountByCreateTime(24);
 $column = array("Time", "vote", "total");
 Utils::writeArray2csv("Vote_Trend.csv", $column, 1000000, $voteArray);
 
@@ -82,10 +89,14 @@ printf($TAIL);
 $blockModel = new BlockChainModel($conn);
 $blockArray = $blockModel->getTotalCount();
 printf($HEAD);
+$userArray = array();
 printf("BlockChain Total Count:\n%20s | %8s\r\n", "type", "count");
 foreach ($blockArray as $key => $value) {
     printf("%20s | %8d\r\n", $value['type'], $value['count']);
+    $userArray[$value['type']] = $value['count'];
 }
+$column = array("type", "count");
+Utils::writeArray2csv("BlockChainData.csv", $column, 1000000, $userArray);
 printf($TAIL);
 
 $unSyncArray = $blockModel->getUnSyncCount();

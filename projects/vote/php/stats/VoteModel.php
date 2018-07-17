@@ -18,7 +18,12 @@ class VoteModel extends BaseModel {
         }
         else {
             $interval = 3600 * $hours;
-            $sql = "select date_format(from_unixtime(floor(vote_gmt_time/".$interval.")* ".$interval."), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_vote group by hour";
+            if ($hours % 24 == 0) {
+                $sql = "select date_format(from_unixtime(floor(vote_gmt_time/".$interval.")* ".$interval."), '%Y/%m/%d') hour, count(*) as count from elastos_vote group by hour";
+            }
+            else {
+                $sql = "select date_format(from_unixtime(floor(vote_gmt_time/".$interval.")* ".$interval."), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_vote group by hour";
+            }
         }
         $userGroup = $this->ExecSelectQuery($sql);
         return Utils::calTotalValue($userGroup, 'count', 'total');

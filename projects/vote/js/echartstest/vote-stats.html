@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Elastos Vote Stats</title>
+    <script src="echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="totalUser" style="height:600px;"></div>
+    <div id="userRegister" style="height:600px;"></div>
+    <div id="country" style="height:800px;"></div>
+    <div id="topcountry" style="height:500px;"></div>
+    <div id="fate" style="height:600px;"></div>
+    <div id="haswallet" style="height:500px;"></div>
+    <div id="topicvote" style="height:600px;"></div>
+    <div id="vote" style="height:600px;"></div>
+    <div id="dailyvote" style="height:600px;"></div>
+    <div id="uservote" style="height:600px;"></div>
+    <div id="chaindata" style="height:600px;"></div>
+
+    <script type="text/javascript">
+        option = {
+            title: {
+                text: '',
+                x:'center'
+            },
+            tooltip: {},
+            legend: {
+                data:['name']
+            },
+            grid: {
+                y2:120
+            },
+            xAxis: {
+                data: [],
+                axisLabel: {
+                   interval:0,
+                   rotate:40
+                }
+            },
+            yAxis: {
+            },
+            series: [{
+                // name: 'name',
+                type: 'bar',
+                data: [],
+                //begin
+                itemStyle: {
+                    normal:{
+                        // color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                        color: function (params){
+                            // var colorList = ['rgb(205,85,85)','rgb(210,105,30)','rgb(0,139,0)','rgb(178,58,238)','rgb(54,100,139)'];
+                            var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F','#E89589','#16A085','#4A235A','#C39BD3 ','#F9E79F','#BA4A00','#BCF001','#616A6B','#BAF2F8','#4A235A','#3498DB' ];
+                            return colorList[params.dataIndex%colorList.length];
+                        }
+                    },
+                    //鼠标悬停时：
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+
+        optionPie = {
+            title: {
+                text: '',
+                x:'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}:{c} ({d}%)'
+            },
+            // legend: {
+            //     data:['name']
+            // },
+            series: [{
+                // name: 'name',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '60%'],
+                data: [],
+                //begin
+                itemStyle: {
+                    normal:{
+                        // color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                        color: function (params){
+                            // var colorList = ['rgb(205,85,85)','rgb(210,105,30)','rgb(0,139,0)','rgb(178,58,238)','rgb(54,100,139)'];
+                            var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F','#E89589','#16A085','#4A235A','#C39BD3 ','#F9E79F','#BA4A00','#ECF0F1','#616A6B','#EAF2F8','#4A235A','#3498DB' ];
+                            return colorList[params.dataIndex%colorList.length];
+                        }
+                    },
+                    //鼠标悬停时：
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+
+        function Ajax(url, title, x, y, stype, echartsInstance) {
+            if(window.XMLHttpRequest) {
+                var oAjax = new XMLHttpRequest();// code for IE7+, Firefox, Chrome, Opera, Safari
+            }
+            else {
+                var oAjax = new ActiveXObject("Microsoft.XMLHTTP");// code for IE6, IE5
+            }
+            try {
+                oAjax.open('GET', url, true);//open(方法，文件名，异步传输)
+                oAjax.send();
+            }
+            catch (err) {
+                console.log("err:" + err);
+            }
+            oAjax.onreadystatechange = function() {
+                if (oAjax.readyState == 4) {
+                    if(oAjax.status == 200) {
+                        var gameData = oAjax.responseText.split("\n");
+                        if (stype != 'pie') {
+                            var xAxis = new Array()
+                            var dataAxis = new Array();
+                            for (var i = 1; i < gameData.length - 1; i++) {
+                                // console.log(gameData[i]);
+                                var arr = gameData[i].split(",");
+                                xAxis[i-1] = arr[x];
+                                dataAxis[i-1] = arr[y];
+                            }
+
+                            echartsInstance.setOption({
+                                title: {
+                                    text: title
+                                },
+                                xAxis: {
+                                    data: xAxis
+                                },
+                                series: [{
+                                    type: stype,
+                                    data: dataAxis
+                                }]
+                            });
+                        }
+                        else {
+                            var seriesData = [];
+                            for (var i = 1; i < gameData.length - 1; i++) {
+                                var arr = gameData[i].split(",");
+                                seriesData.push({name:arr[x], value:arr[y]});
+                            }
+                            echartsInstance.setOption({
+                                title:{
+                                    text: title
+                                },
+                                series: [{
+                                    data: seriesData,
+                                }]
+                            });
+                        }
+                    }
+                    else {
+                        console.log("status:" + oAjax.status);
+                    }
+                };
+            };
+        }
+
+        var myChart = echarts.init(document.getElementById('totalUser'));
+        myChart.setOption(option);
+        Ajax('User_Create_Trend.csv', '总用户增长趋势图', 0, 2, 'line', myChart);
+
+        var userChart = echarts.init(document.getElementById('userRegister'));
+        userChart.setOption(option);
+        Ajax('User_Create_Trend.csv', '每日用户增长趋势图', 0, 1, 'line', userChart);
+
+        var userChart = echarts.init(document.getElementById('country'));
+        userChart.setOption(option);
+        Ajax('User_Trend_ByCountry.csv', '用户国家或地区分布', 3, 1, 'bar', userChart);
+
+        var countryChart = echarts.init(document.getElementById('topcountry'));
+        countryChart.setOption(optionPie);
+        Ajax('User_Trend_ByTopCountry.csv', '用户国家或地区分布', 3, 1, 'pie', countryChart);
+
+        var userChart = echarts.init(document.getElementById('fate'));
+        userChart.setOption(option);
+        Ajax('User_TopFate.csv', '用户邀请数Top20', 1, 3, 'bar', userChart);
+
+        var walletChart = echarts.init(document.getElementById('haswallet'));
+        walletChart.setOption(optionPie);
+        Ajax('User_Wallet.csv', '绑定钱包数', 0, 1, 'pie', walletChart);
+
+        var topicChart = echarts.init(document.getElementById('topicvote'));
+        topicChart.setOption(option);
+        Ajax('Topic_Vote.csv', '各场比赛投票情况', 1, 2, 'bar', topicChart);
+
+        var voteChart = echarts.init(document.getElementById('vote'));
+        voteChart.setOption(option);
+        Ajax('Vote_Trend.csv', '总投票增长趋势图', 0, 2, 'line', voteChart);
+
+        var dailyVoteChart = echarts.init(document.getElementById('dailyvote'));
+        dailyVoteChart.setOption(option);
+        Ajax('Vote_Trend.csv', '每日投票增长趋势图', 0, 1, 'line', dailyVoteChart);
+
+        var userVoteChart = echarts.init(document.getElementById('uservote'));
+        userVoteChart.setOption(option);
+        Ajax('User_VoteCount_Stats.csv', '用户按所投票总数分类', 0, 1, 'bar', userVoteChart);
+
+        var chainChart = echarts.init(document.getElementById('chaindata'));
+        chainChart.setOption(option);
+        Ajax('BlockChainData.csv', '上链数据', 0, 1, 'bar', chainChart);
+
+    </script>
+</body>
+</html>

@@ -52,7 +52,12 @@ class MemberModel extends BaseModel {
         }
         else {
             $interval = 3600 * $hours;
-            $sql = "select date_format(from_unixtime(floor(create_time/".$interval.")* ".$interval."), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_members group by hour";
+            if ($hours % 24 == 0) {
+                $sql = "select date_format(from_unixtime(floor(create_time/".$interval.")* ".$interval."), '%Y/%m/%d') hour, count(*) as count from elastos_members group by hour";
+            }
+            else {
+                $sql = "select date_format(from_unixtime(floor(create_time/".$interval.")* ".$interval."), '%Y/%m/%d %H:00') hour, count(*) as count from elastos_members group by hour";
+            }
         }
         $userGroup = $this->ExecSelectQuery($sql);
         return Utils::calTotalValue($userGroup, 'count', 'total');
@@ -93,6 +98,12 @@ class MemberModel extends BaseModel {
 
     public function getUserByCountry() {
         $sql = "select zone, count(*) as count, sum(fate_num) as fate_num from elastos_members group by zone order by count desc;";
+        $userGroup = $this->ExecSelectQuery($sql);
+        return Utils::addCountryName($userGroup);
+    }
+
+    public function getUserCountryByReferee($name) {
+        $sql = "select zone, count(*) as count from elastos_members where referee =(select user_id from elastos_members where username='{$name}') group by zone order by count desc;";
         $userGroup = $this->ExecSelectQuery($sql);
         return Utils::addCountryName($userGroup);
     }
