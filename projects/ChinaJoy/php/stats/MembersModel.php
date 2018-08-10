@@ -24,21 +24,11 @@ class MemberModel extends BaseModel {
         return $rowCount;
     }
 
-    // public function getUserCountHasWallet() {
-    //     $sql = "select count(*) as c from elastos_members where wallet_addr is not null;";
-    //     $result = mysqli_query($this->m_db, $sql);
-    //     $rowCount = $result->fetch_object()->c;
-    //     mysqli_free_result($result);
-    //     return $rowCount;
-    // }
-
-    // public function getUserCountNoReferee() {
-    //     $sql = "select count(*) as 'c' from elastos_members where referee=0;";
-    //     $result = mysqli_query($this->m_db, $sql);
-    //     $rowCount = $result->fetch_object()->c;
-    //     mysqli_free_result($result);
-    //     return $rowCount;
-    // }
+    public function getEcoReward() {
+        $sql = "select m.nickname, j.medal_num, t.name, mt.wallet_addr , replace(j.eco_currency, ',', '') as eco_currency from elastos_members m, elastos_members_joy j, elastos_teams t , elastos_member_team mt where  m.openid = j.openid and j.team_id = t.id and m.user_id = mt.user_id and j.team_id = mt.team_id order by j.team_id desc;";
+        $userGroup = $this->ExecSelectQuery($sql);
+        return $userGroup;
+    }
 
     public function getRegisterReward($limit) {
         $sql = "select m.nickname, d.hexChar, d.register_reward, d.create_time from elastos_members m, elastos_lottery_details d where m.openid = d.openid order by d.create_time desc;";

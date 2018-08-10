@@ -1,7 +1,5 @@
 <?php
 
-$allCountries = require("./countryZone.php");
-
 class Utils {
 
     public static function sortArrayByOneField($data, $field, $desc = false) {
@@ -75,15 +73,6 @@ class Utils {
         }
         $newArray[] = $otherArray;
         return $newArray;
-    }
-
-    public static function addCountryName($data) {
-        global $allCountries;
-
-        foreach ($data as $key => $value) {
-            $data[$key]['CountryName'] = $allCountries[$value['zone']];
-        }
-        return $data;
     }
 }
 
