@@ -35,14 +35,14 @@ $calCol = array("country", "count", "fate_num");
 $newuserArray = Utils::calTop($userArray, 30, $calCol);
 Utils::writeArray2csv("User_Trend_ByTopCountry.csv", $column, 10000000, $newuserArray);
 
-$userArray = $memberModel->getUsersByFate_num(30);
-$column = array("user_id", "username", "zone", "country", "fate_num");
+$userArray = $memberModel->getUsersByFate_num(11);
+$column = array("user_id", "username", "fate_num", "wallet", "zone", "country");
 Utils::writeArray2csv("User_TopFate.csv", $column, 1000000, $userArray);
-printf("index | %20s | %8s | %8s | %8s |\r\n", "userName", "Zone", "Country", "fate_num");
+printf("index | %20s | %8s | %32s | %8s | %8s |\r\n", "userName", "fate_num", "wallet", "Zone", "Country");
 $index=0;
 foreach ($userArray as $key => $value) {
     $index++;
-    printf("%5d | %20s | %8d | %8s| %8d |\r\n", $index, $value['username'], $value['zone'], $value['CountryName'], $value['fate_num']);
+    printf("%5d | %20s | %8d | %32s | %8d| %8s |\r\n", $index, $value['username'], $value['fate_num'], $value['wallet_addr'], $value['zone'], $value['CountryName']);
 }
 
 $userCount = $memberModel->getUserCount();
