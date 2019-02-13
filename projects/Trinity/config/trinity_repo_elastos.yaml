@@ -1,0 +1,125 @@
+repo:
+  Elastos.Trinity:
+    url: git@github.com:elastos/Elastos.Trinity.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.DApps.Launcher:
+    url: git@github.com:elastos/Elastos.Trinity.DApps.Launcher.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.Runtime:
+    url: git@github.com:elastos/Elastos.Trinity.Runtime.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.Runtime.Plugins.AppManager:
+    url: git@github.com:elastos/Elastos.Trinity.Runtime.Plugins.AppManager.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.Runtime.Plugins.AppService:
+    url: git@github.com:elastos/Elastos.Trinity.Runtime.Plugins.AppService.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.Runtime.Plugins.PluginDemo:
+    url: git@github.com:elastos/Elastos.Trinity.Runtime.Plugins.PluginDemo.git
+    workbranch: dev
+    mergeto: master
+
+  Elastos.Trinity.ToolChains:
+    url: git@github.com:elastos/Elastos.Trinity.ToolChains.git
+    workbranch: master
+
+# fork form cordova
+  Elastos.Trinity.Plugins.BatteryStatus:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.BatteryStatus.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Camera:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Camera.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Device:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Device.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.DeviceMotion:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.DeviceMotion.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Dialog:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Dialog.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.File:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.File.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Flashlight:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Flashlight.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Geolocation:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Geolocation.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.InappBrowser:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.InappBrowser.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Media:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Media.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.MediaCapture:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.MediaCapture.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.NetWorkInformation:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.NetWorkInformation.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.QRScanner:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.QRScanner.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.ScreenOrientation:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.ScreenOrientation.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.SplashScreen:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.SplashScreen.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Statusbar:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Statusbar.git
+    workbranch: dev
+    mergeto: trinity
+
+  Elastos.Trinity.Plugins.Vibration:
+    url: git@github.com:elastos/Elastos.Trinity.Plugins.Vibration.git
+    workbranch: dev
+    mergeto: trinity
+
+#  Elastos.Trinity.Plugins.Whitelist:
+#    url: git@github.com:elastos/Elastos.Trinity.Plugins.Whitelist.git
+#    workbranch: dev
+#    mergeto: trinity
